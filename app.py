@@ -28,19 +28,27 @@ def create_buggy():
     elif request.method == 'POST':
         msg=""
         qty_wheels = request.form['qty_wheels']
-        if not qty_wheels.isdigit():
+        flag_color = request.form['flag_color']
+        if not qty_wheels.isdigit() and qty_wheels != "":
             msg = f"That is not a number : {qty_wheels}"
 
             return render_template("buggy-form.html", msg=msg)
         try:
             with sql.connect(DATABASE_FILE) as con:
                 cur = con.cursor()
+
+                if qty_wheels != "":
+                    cur.execute(
+                        "UPDATE buggies set qty_wheels=? WHERE id=?",
+                        (qty_wheels, DEFAULT_BUGGY_ID)
+                    )
                 cur.execute(
-                    "UPDATE buggies set qty_wheels=? WHERE id=?",
-                    (qty_wheels, DEFAULT_BUGGY_ID)
+                    "UPDATE buggies set flag_color=? WHERE id=?",
+                    (flag_color, DEFAULT_BUGGY_ID)
                 )
                 con.commit()
                 msg = "Record successfully saved"
+
         except:
             con.rollback()
             msg = "error in update operation"
@@ -61,7 +69,7 @@ def show_buggies():
     return render_template("buggy.html", buggy = record)
 
 #------------------------------------------------------------
-# a placeholder page for editing the buggy: you'll need
+# a placeholder page for editing the buggy: yo`u'll need
 # to change this when you tackle task 2-EDIT
 #------------------------------------------------------------
 @app.route('/edit')
