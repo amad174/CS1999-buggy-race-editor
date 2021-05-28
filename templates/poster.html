@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Cutive+Mono&display=swap" rel="stylesheet">
+
+
+
+    <style>
+
+      body{
+        margin:0px;
+        -webkit-font-smoothing: antialiased;
+      }
+   
+      .font-arvo{
+        font-family: 'Arvo', serif;
+        font-size: 40px;
+        font-style: italic;
+        font-weight: 200;
+      }
+
+      .font-cutive-mono{
+        font-family: 'Arvo', serif;
+        font-family: 'Cutive Mono', monospace;
+        
+      }
+
+    </style>
+
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amad's Buggy Poster</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="absolute text-white text-center" style="top: 50%; transform:translate(-50%,-50%); left:50%;">
+        <h1 class = "font-cutive-mono text-2xl">Amad's Buggy Poster</h1>
+        <p class = "font-arvo" > ONE WITH A DESIRE FOR THE UNKNOWN</p>
+         <a href="https://www.youtube.com/channel/UCnFvAOWDoM7eMHt9ua__vSg" class= "border px-4 py-2 rounded-lg  
+         font-cutive-mono text-sm uppercase mt-5 hover:bg-white hover:text-gray-800 inline-block">View Work</a>
+      </div>
+
+    </div>
+    <script type="module" src="{{url_for('static', filename='main.js')}}"></script>
+  </body>
+</html>

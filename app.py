@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import sqlite3 as sql
+import os
 
 # app - The flask application where all the magical things are configured.
 app = Flask(__name__)
@@ -21,31 +22,43 @@ def home():
 #  if it's a POST request process the submitted data
 #  but if it's a GET request, just show the form
 #------------------------------------------------------------
+def return_values():
+    con = sql.connect(DATABASE_FILE)
+    con.row_factory = sql.Row
+    cur = con.cursor()
+    cur.execute("SELECT * FROM buggies")
+    record = cur.fetchone(); 
+    return record
+
+
+
 @app.route('/new', methods = ['POST', 'GET'])
 def create_buggy():
     if request.method == 'GET':
-        return render_template("buggy-form.html")
+        record = return_values()
+        return render_template("buggy-form.html", buggy = record)
     elif request.method == 'POST':
         msg=""
-        qty_wheels = request.form['qty_wheels']
+        qty_wheels = int(request.form['qty_wheels'])
         flag_color = request.form['flag_color']
-        if not qty_wheels.isdigit() and qty_wheels != "":
-            msg = f"That is not a number : {qty_wheels}"
+        flag_color_secondary = request.form['flag_color_secondary']
+        flag_pattern = request.form['flag_pattern']
 
-            return render_template("buggy-form.html", msg=msg)
+
+        if qty_wheels %2 != 0  or qty_wheels<4 :
+            msg = "You must enter an even number for amount of wheels:"
+            record = return_values()
+            return render_template("buggy-form.html", msg=msg, buggy = record)
         try:
-            with sql.connect(DATABASE_FILE) as con:
+            with sql.connect(DATABASE_FILE) as con: 
                 cur = con.cursor()
-
-                if qty_wheels != "":
-                    cur.execute(
-                        "UPDATE buggies set qty_wheels=? WHERE id=?",
-                        (qty_wheels, DEFAULT_BUGGY_ID)
-                    )
                 cur.execute(
-                    "UPDATE buggies set flag_color=? WHERE id=?",
-                    (flag_color, DEFAULT_BUGGY_ID)
-                )
+                    "UPDATE buggies set qty_wheels=?, flag_color=?, flag_color_secondary=?, flag_pattern=? WHERE id=?",
+                    (qty_wheels,flag_color,flag_color_secondary,flag_pattern, DEFAULT_BUGGY_ID)	
+                    )
+               
+           
+                
                 con.commit()
                 msg = "Record successfully saved"
 
@@ -61,11 +74,7 @@ def create_buggy():
 #------------------------------------------------------------
 @app.route('/buggy')
 def show_buggies():
-    con = sql.connect(DATABASE_FILE)
-    con.row_factory = sql.Row
-    cur = con.cursor()
-    cur.execute("SELECT * FROM buggies")
-    record = cur.fetchone(); 
+    record = return_values()
     return render_template("buggy.html", buggy = record)
 
 #------------------------------------------------------------
@@ -75,6 +84,12 @@ def show_buggies():
 @app.route('/edit')
 def edit_buggy():
     return render_template("buggy-form.html")
+	
+@app.route('/posters')
+def poster_add():
+	return render_template("poster.html")
+	
+
 
 #------------------------------------------------------------
 # You probably don't need to edit this... unless you want to ;)
@@ -94,6 +109,12 @@ def summary():
 
     buggies = dict(zip([column[0] for column in cur.description], cur.fetchone())).items() 
     return jsonify({ key: val for key, val in buggies if (val != "" and val is not None) })
+
+
+
+
+
+
 
 # You shouldn't need to add anything below this!
 if __name__ == '__main__':

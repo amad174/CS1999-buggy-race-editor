@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: 1.2em;
-  color: #000000;
+  color: #ff0000;
   background: repeating-linear-gradient(
     45deg,
     #ffffee,
@@ -15,6 +15,7 @@ body {
     #eeeeee 2em,
     #eeeeee 4em
   );
+  
 }
 .main-content {
   min-height: 100vh;

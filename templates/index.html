@@ -2,15 +2,21 @@
 
 {% block content %}
 
+  
+
   <h1>
     My buggy editor
   </h1>
 
+  <body>
   <div class="spacer">
     <a href="/new" class="button">Make buggy</a>
     <a href="/buggy" class="button">Show buggy</a>
     <a href="/json" class="button">Get buggy JSON</a>
+    <a href="/posters" class="button">Poster</a>
+	
   </div>
+
 
   <p>
     Use this editor to specify a racing buggy. The editor saves it in its
@@ -24,5 +30,10 @@
     will be disqualified from that race... so make sure you program your editor
     correctly.
   </p>
+
+ 
+ <script type="module" src="{{url_for('static', filename='main.js')}}"></script>
+</body>
+
 
 {% endblock %}
