@@ -1,0 +1,59 @@
+html{
+    margin: 0;
+    padding: 0; 
+    
+  }
+
+  .pos-style{
+    position: fixed;
+    top: 50%; transform:translate(-50%,-50%); left:50%;
+    
+  }
+
+  body{
+    margin:0px;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-arvo{
+    font-family: 'Arvo', serif;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: 200;
+  }
+
+  .font-cutive-mono{
+    font-family: 'Arvo', serif;
+    font-family: 'Cutive Mono', monospace;
+   
+    
+  }
+
+  table {
+    border: 1px solid #000000;
+    border-collapse: collapse;
+    margin: 0 0 2em 0;
+  }
+
+  table td, table th {
+    padding: 0.25em;
+    border: 1px solid #999999;
+    padding: 0.5rem;
+  }
+
+  .spacer {
+    margin: 3em 0;
+  }
+
+  
+  p {
+   font-family: font-cutive-mono;
+    margin: 1em 0;
+    font-size: 1rem;
+    
+  }
+
+  temp{
+    color:white
+  }

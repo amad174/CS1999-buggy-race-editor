@@ -2,36 +2,69 @@
 
 {% block content %}
 
+
+
+
+<body>
+<div id="app">
+<div class="pos-style absolute text-white text-center" >
   <h1>Make buggy</h1>
   <p1>{{msg}}</p1>
   <form action="/new" method="post">
-    <label for="qty_wheels">Number of wheels:</label>
-    <input type="number" value={{ buggy['qty_wheels'] }} name="qty_wheels" />
-    <input type="submit" class="button">
 
-    <label for="flag_color">Color of Flag:</label>
-    <input type="text" value={{ buggy['flag_color'] }} name="flag_color" />
+   
+
+<table>
+
+  <tr>
+    <td> <label for="qty_wheels">Number of wheels:</label></td> <td>  <input style="color:black" 
+      type="number" value={{ buggy['qty_wheels'] }} name="qty_wheels" /></td>
+  </tr>
+
+  <tr>
+    <td> <label for="flag_color">Color of Flag:</label></td> <td>   
+      <select name="flag_color" id="flag_color"  style="color:black" value={{ buggy['flag_color'] }} >
+        <option value="Red">Red</option>
+        <option value="Blue">Blue</option>
+        <option value="Green">Green</option>
+        <option value="Yellow">Yellow</option>
+      </select>  
+    
+    </td>
+  </tr>
 
 
-    <label for="flag_color_secondary">Seondary color of Flag:</label>
-    <input type="text"  value={{ buggy['flag_color_secondary'] }} name="flag_color_secondary"/>
+  
+  <tr>
+    <td><label for="flag_color_secondary">Seondary color of Flag:</label></td> <td> <input style="color:black" 
+      type="text"  value={{ buggy['flag_color_secondary'] }} name="flag_color_secondary"/>
+    </td>
+  </tr>
 
-    <br>
-
-    <label for="flag_pattern">Pattern of Flag:</label>
-    <input type="text" value={{ buggy['flag_pattern'] }} name="flag_pattern"/>
-
-
+  <tr>
+    <td><label for="flag_pattern">Pattern of Flag:</label></td> <td>  <input style="color:black" 
+      type="text" value={{ buggy['flag_pattern'] }} name="flag_pattern"/> </td>
+  </tr>
 
 
+</table>
+
+<input type="submit" class="border px-4 py-2 rounded-lg font-cutive-mono text-sm uppercase mt-5 
+hover:bg-white hover:text-gray-800 inline-block " style="   background-color: transparent !important; cursor:pointer;">
   </form>
 
   <p>
-    <a href="/" class="button">home</a>
+    <a href="/" class="border px-4 py-2 rounded-lg font-cutive-mono text-sm uppercase mt-5 
+    hover:bg-white hover:text-gray-800 inline-block ">home</a>
 
 
-    <a href="/reset" class="button">reset</a>
+    <a href="/reset" class="border px-4 py-2 rounded-lg font-cutive-mono text-sm uppercase mt-5 
+    hover:bg-white hover:text-gray-800 inline-block">reset</a>
 
   </p>
 
+  </div>
+</div>
+  <script type="module" src="{{url_for('static', filename='main.js')}}"></script>
+</body>
 {% endblock %}

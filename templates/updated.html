@@ -2,13 +2,21 @@
 
 {% block content %}
 
+
+<body>
+  <div id="app">
+  <div class="pos-style absolute text-white text-center" >
   <h1>Updated Buggy</h1>
 
   <p>
     {{ msg }}
   </p>
   <p>
-    <a href="/" class="button">home</a>
+    <a href="/" class="border px-4 py-2 rounded-lg font-cutive-mono text-sm uppercase mt-5 
+    hover:bg-white hover:text-gray-800 inline-block">home</a>
   </p>
-
+</div>
+</div>
+  <script type="module" src="{{url_for('static', filename='main.js')}}"></script>
+</body>
 {% endblock %}

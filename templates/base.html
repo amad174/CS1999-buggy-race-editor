@@ -1,14 +1,25 @@
 <!doctype html>
 <html>
-  <head>
+  <head  >
     <meta charset="utf-8" />
-    <link href="/static/app.css" media="screen, projector, print" rel="stylesheet" type="text/css" />
+    <link href="{{url_for('static', filename='amads.css')}}" media="screen, projector, print" rel="stylesheet" type="text/css" />
+
+    
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Cutive+Mono&display=swap" rel="stylesheet">
+
+
+
+  
   </head>
-  <body>
+  <body class="absolute">
     <div class="main-content">
 
       {% block content %}{% endblock %}
 
     </div>
+
   </body>
 </html>

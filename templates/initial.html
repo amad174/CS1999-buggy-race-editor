@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Cutive+Mono&display=swap" rel="stylesheet">
+
+
+
+
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amad's Buggy Editor</title>
+  </head>
+  <body >
+    <div id="app">
+      <div class="pos-style absolute text-white text-center" >
+        <h1 class = "font-arvo">  My buggy editor</h1>
+
+
+
+       
+         <a href="/new" class="border px-4 py-2 rounded-lg font-cutive-mono text-sm uppercase mt-5 
+         hover:bg-white hover:text-gray-800 inline-block">Make Buggy</a>
+
+         <a href="/buggy" class="border px-4 py-2 rounded-lg font-cutive-mono text-sm uppercase mt-5 
+         hover:bg-white hover:text-gray-800 inline-block">Show buggy</a>
+
+         <a href="/json" class="border px-4 py-2 rounded-lg font-cutive-mono text-sm uppercase mt-5 
+         hover:bg-white hover:text-gray-800 inline-block">Get buggy JSON</a>
+
+         <a href="/posters" class="border px-4 py-2 rounded-lg font-cutive-mono text-sm uppercase mt-5 
+         hover:bg-white hover:text-gray-800 inline-block">Poster</a>
+
+         <br>
+         <br>
+
+         
+         <p>
+          Use this editor to specify a racing buggy. The editor saves it in its
+          little database and generates JSON data for the buggy. This is the data you
+          need to supply when you log into the
+          <strong><a href="{{ server_url }}">race server</a></strong> and enter your
+          buggy into the next race.
+        </p>
+        <br>
+        <p>
+          Remember that if your data is not accepted by the race server, your buggy
+          will be disqualified from that race... so make sure you program your editor
+          correctly.
+        </p>
+      
+     
+
+
+
+
+      </div>
+
+    </div>
+    <script type="module" src="{{url_for('static', filename='main.js')}}"></script>
+  </body>
+</html>
+
+{% endblock %}

@@ -15,7 +15,7 @@ BUGGY_RACE_SERVER_URL = "http://rhul.buggyrace.net"
 #------------------------------------------------------------
 @app.route('/')
 def home():
-    return render_template('index.html', server_url=BUGGY_RACE_SERVER_URL)
+    return render_template('initial.html', server_url=BUGGY_RACE_SERVER_URL)
 
 #------------------------------------------------------------
 # creating a new buggy:
