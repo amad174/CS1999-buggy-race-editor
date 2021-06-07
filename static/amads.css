@@ -12,9 +12,11 @@ html{
 
   body{
     margin:0px;
-    color: white;
+    color: black;
+    background-color: orange;
     -webkit-font-smoothing: antialiased;
   }
+  
 
   .font-arvo{
     font-family: 'Arvo', serif;
@@ -34,6 +36,7 @@ html{
     border: 1px solid #000000;
     border-collapse: collapse;
     margin: 0 0 2em 0;
+    height:100%;
   }
 
   table td, table th {
@@ -55,5 +58,10 @@ html{
   }
 
   temp{
-    color:white
+    color:black
+  }
+
+  .center {
+    margin-left: auto;
+    margin-right: auto;
   }

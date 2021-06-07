@@ -5,7 +5,7 @@
   
 <body>
   <div id="app">
-  <div class="pos-style absolute text-white text-center"> 
+  <div class="center text-center"> 
 
     <h1 class = "font-arvo">Buggy</h1>
 
@@ -30,6 +30,43 @@
       <td>Pattern of Flag:</td> <td> {{ buggy['flag_pattern'] }} </td>
     </tr>
 
+    <tr>
+      <td>Primary Motive Power:</td> <td> {{ buggy['power_type'] }} </td>
+    </tr>
+
+
+    <tr>
+      <td>Primary motive power units:</td> <td> {{ buggy['power_units'] }} </td>
+    </tr>
+
+    <tr>
+      <td>Type of tyres:</td> <td> {{ buggy['tyres'] }} </td>
+    </tr>
+
+    
+    <tr>
+      <td>Number of tyres:</td> <td> {{ buggy['qty_tyres'] }} </td>
+    </tr>
+
+
+        
+    <tr>
+      <td>Auxiliary Motive Power:</td> <td> {{ buggy['aux_power_type'] }} </td>
+    </tr>
+    
+    <tr>
+      <td>Auxiliary motive power units:</td> <td> {{ buggy['aux_power_units'] }} </td>
+    </tr>
+    
+    <tr style="color: red; font-size: large; font-weight: bolder;">
+      <td> <label for="cost">Cost:</label></td> <td>  <p>{{ buggy['cost'] }}</p></td>
+    </tr>
+    
+    
+
+    
+
+    
   </table>
 
   <p>
@@ -40,6 +77,6 @@
 </div>
   </div>
 
-  <script type="module" src="{{url_for('static', filename='main.js')}}"></script>
+
   </body>
 {% endblock %}

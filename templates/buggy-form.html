@@ -7,44 +7,150 @@
 
 <body>
 <div id="app">
-<div class="pos-style absolute text-white text-center" >
+<div class="center text-center" >
   <h1>Make buggy</h1>
   <p1>{{msg}}</p1>
   <form action="/new" method="post">
 
    
 
-<table>
+<table class="center">
 
   <tr>
-    <td> <label for="qty_wheels">Number of wheels:</label></td> <td>  <input style="color:black" 
+    <td> <label for="qty_wheels">Number of wheels:</label></td> <td>  <input style="color:black" step="2" min="4"
       type="number" value={{ buggy['qty_wheels'] }} name="qty_wheels" /></td>
   </tr>
 
   <tr>
     <td> <label for="flag_color">Color of Flag:</label></td> <td>   
       <select name="flag_color" id="flag_color"  style="color:black" value={{ buggy['flag_color'] }} >
-        <option value="Red">Red</option>
-        <option value="Blue">Blue</option>
-        <option value="Green">Green</option>
-        <option value="Yellow">Yellow</option>
+        <option {% if buggy["flag_color"]== "Red" %} selected{% endif %} value="Red">Red</option>
+        <option {% if buggy["flag_color"]== "Blue" %} selected{% endif %} value="Blue">Blue</option>
+        <option {% if buggy["flag_color"]== "Green" %} selected{% endif %} value="Green">Green</option>
+        <option {% if buggy["flag_color"]== "Yellow" %} selected{% endif %} value="Yellow">Yellow</option>
+        <option {% if buggy["flag_color"]== "Black" %} selected{% endif %} value="Black">Black</option>
+        <option {% if buggy["flag_color"]== "White" %} selected{% endif %} value="White">White</option>
       </select>  
     
     </td>
   </tr>
 
 
-  
   <tr>
-    <td><label for="flag_color_secondary">Seondary color of Flag:</label></td> <td> <input style="color:black" 
-      type="text"  value={{ buggy['flag_color_secondary'] }} name="flag_color_secondary"/>
+    <td> <label for="flag_color_secondary">Secondary color of Flag:</label></td> <td>   
+      <select name="flag_color_secondary" id="flag_color_secondary"  style="color:black" value={{ buggy['flag_color_secondary'] }} >
+        <option {% if buggy["flag_color_secondary"]== "Red" %} selected{% endif %} value="Red">Red</option>
+        <option {% if buggy["flag_color_secondary"]== "Blue" %} selected{% endif %} value="Blue">Blue</option>
+        <option {% if buggy["flag_color_secondary"]== "Green" %} selected{% endif %} value="Green">Green</option>
+        <option {% if buggy["flag_color_secondary"]== "Yellow" %} selected{% endif %} value="Yellow">Yellow</option>
+        <option {% if buggy["flag_color_secondary"]== "Black" %} selected{% endif %} value="Black">Black</option>
+        <option {% if buggy["flag_color_secondary"]== "White" %} selected{% endif %} value="White">White</option>        
+      </select>  
+    
     </td>
   </tr>
 
   <tr>
-    <td><label for="flag_pattern">Pattern of Flag:</label></td> <td>  <input style="color:black" 
-      type="text" value={{ buggy['flag_pattern'] }} name="flag_pattern"/> </td>
+    <td> <label for="flag_pattern">Pattern of Flag:</label></td> <td>   
+      <select name="flag_pattern" id="flag_pattern"  style="color:black" value={{ buggy['flag_pattern'] }} >
+        <option {% if buggy["flag_pattern"]== "plain" %} selected{% endif %} value="plain">plain</option>
+        <option {% if buggy["flag_pattern"]== "vstripe" %} selected{% endif %} value="vstripe">vstripe</option>
+        <option {% if buggy["flag_pattern"]== "hstripe" %} selected{% endif %} value="hstripe">hstripe</option>
+        <option {% if buggy["flag_pattern"]== "dstripe" %} selected{% endif %} value="dstripe">dstripe</option>
+        <option {% if buggy["flag_pattern"]== "checker" %} selected{% endif %} value="checker">checker</option>
+        <option {% if buggy["flag_pattern"]== "spot" %} selected{% endif %} value="spot">spot</option>
+
+      </select>  
+      
+    </td>
+    
   </tr>
+
+  <tr>
+    <td> <label for="power_type">Primary Motive Power:</label></td> <td>   
+      <select name="power_type" id="power_type"  style="color:black" value={{ buggy['power_type'] }} >
+  
+        <option {% if buggy["power_type"]== "petrol" %} selected{% endif %} value="petrol">petrol</option>
+        <option {% if buggy["power_type"]== "fusion" %} selected{% endif %} value="fusion">fusion</option>
+        <option {% if buggy["power_type"]== "steam" %} selected{% endif %} value="steam">steam</option>
+        <option {% if buggy["power_type"]== "bio" %} selected{% endif %} value="bio">bio</option>
+        <option {% if buggy["power_type"]== "electric" %} selected{% endif %} value="electric">electric</option>
+        <option {% if buggy["power_type"]== "rocket" %} selected{% endif %} value="rocket">rocket</option>
+        <option {% if buggy["power_type"]== "hamster" %} selected{% endif %} value="hamster">hamster</option>
+        <option {% if buggy["power_type"]== "thermo" %} selected{% endif %} value="thermo">thermo</option>
+        <option {% if buggy["power_type"]== "solar" %} selected{% endif %} value="solar">solar</option>
+        <option {% if buggy["power_type"]== "wind" %} selected{% endif %} value="wind">wind</option>
+
+      </select>  
+      
+    </td>
+    
+  </tr>
+
+  <tr>
+    <td> <label for="power_units">Primary motive power units:</label></td> <td>  <input style="color:black" min="1"
+      type="number" value={{ buggy['power_units'] }} name="power_units" /></td>
+  </tr>
+
+
+  <tr>
+    <td> <label for="tyres">Type of tyres:</label></td> <td>   
+      <select name="tyres" id="tyres"  style="color:black" value={{ buggy['tyres'] }} >
+        <option {% if buggy["tyres"]== "knobbly" %} selected{% endif %} value="knobbly">knobbly</option>
+        <option {% if buggy["tyres"]== "slick" %} selected{% endif %} value="slick">slick</option>
+        <option {% if buggy["tyres"]== "steelband" %} selected{% endif %} value="steelband">steelband</option>
+        <option {% if buggy["tyres"]== "reactive" %} selected{% endif %} value="reactive">reactive</option>
+        <option {% if buggy["tyres"]== "maglev" %} selected{% endif %} value="maglev">maglev</option>
+ 
+      </select>  
+      
+    </td>
+  </tr>
+
+  <tr>
+    <td> <label for="qty_tyres">Number of tyres:</label></td> <td>  <input style="color:black" step="2" min="4"
+      type="number" value={{ buggy['qty_tyres'] }} name="qty_tyres" /></td>
+  </tr>
+  
+  
+    <tr>    
+    <td> <label for="aux_power_type">Auxiliary Motive Power:</label></td> <td>   
+      <select name="aux_power_type" id="aux_power_type"  style="color:black" value={{ buggy['aux_power_type'] }} >
+
+          
+        <option {% if buggy["aux_power_type"]== "petrol" %} selected{% endif %} value="petrol">petrol</option>
+        <option {% if buggy["aux_power_type"]== "fusion" %} selected{% endif %} value="fusion">fusion</option>
+        <option {% if buggy["aux_power_type"]== "steam" %} selected{% endif %} value="steam">steam</option>
+        <option {% if buggy["aux_power_type"]== "bio" %} selected{% endif %} value="bio">bio</option>
+        <option {% if buggy["aux_power_type"]== "electric" %} selected{% endif %} value="electric">electric</option>
+        <option {% if buggy["aux_power_type"]== "rocket" %} selected{% endif %} value="rocket">rocket</option>
+        <option {% if buggy["aux_power_type"]== "hamster" %} selected{% endif %} value="hamster">hamster</option>
+        <option {% if buggy["aux_power_type"]== "thermo" %} selected{% endif %} value="thermo">thermo</option>
+        <option {% if buggy["aux_power_type"]== "solar" %} selected{% endif %} value="solar">solar</option>
+        <option {% if buggy["aux_power_type"]== "wind" %} selected{% endif %} value="wind">wind</option>
+        <option {% if buggy["aux_power_type"]== "none" %} selected{% endif %} value="none">none</option>
+
+      </select>  
+      
+    </td>
+    
+  </tr>
+
+  <tr>
+    <td> <label for="aux_power_units">Auxiliary motive power units:</label></td> <td>  <input min="0" style="color:black" 
+      type="number" value={{ buggy['aux_power_units'] }} name="aux_power_units" /></td>
+  </tr>
+
+  <tr style="color: red; font-size: large; font-weight: bolder;">
+    <td> <label for="cost">Previous Cost:</label></td> <td>  <p>{{ buggy['cost'] }}</p></td>
+  </tr>
+  
+
+
+  
+  
+  
+
 
 
 </table>
@@ -65,6 +171,7 @@ hover:bg-white hover:text-gray-800 inline-block " style="   background-color: tr
 
   </div>
 </div>
-  <script type="module" src="{{url_for('static', filename='main.js')}}"></script>
+
 </body>
+
 {% endblock %}
